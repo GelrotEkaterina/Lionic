@@ -1,0 +1,746 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* не используется текст decoration для ссылок */
+a {
+    color: inherit; /* чтобы не мешалст цвета */
+    text-decoration: none;
+}
+
+/* чтобы изображения не выходили за границы контейнеров */
+img {
+    max-width: 100%;
+}
+
+
+@font-face { /* подключаем 1первый шрифт */
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Regular.woff2') format("woff2"), url('../fonts/OpenSans-Regular.woff') format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap; /* шрифты, подключение, если их не на устройстве пользователя */
+}
+
+@font-face { /* подключаем 2второй шрифт */
+    font-family: 'OpenSans';
+    src: local('OpenSans-Light'), url('../fonts/OpenSans-Light.woff2') format("woff2"), url('../fonts/OpenSans-Light.woff') format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap; /* шрифты, подключение, если их не на устройстве пользователя */
+}
+
+@font-face { /* подключаем 3третий шрифт */
+    font-family: 'OpenSans';
+    src: local('OpenSans-SemiBold'), url('../fonts/OpenSans-SemiBold.woff2') format("woff2"), url('../fonts/OpenSans-SemiBold.woff') format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap; /* шрифты, подключение, если их не на устройстве пользователя */
+}
+
+
+body {
+    min-width: 1200px;
+    font-family: 'OpenSans', sans-serif;
+    font-weight: 400;
+}
+
+/* специальный класс для списков, убрать паддинг и маркеры списков */
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* класс, сбрасывающий стили кнопок */
+.btn-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* класс для списков, используемые ккак флекс-контейнер */
+.flex {
+    display: flex;
+}
+
+.container {
+    width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto; /* центрируем по горизонтали */
+}
+
+/* стили для заголовков */
+.section-title {
+    margin: 0;
+    margin-bottom: 40px;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 130%;
+    color: #1c1c1c;
+}
+
+.section-descr {
+    margin: 0;
+    margin-bottom: 50px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #787878;
+}
+
+/* отступы внутри секцИЙ */
+.section-offset {
+    padding-top: 87px;
+    padding-bottom: 160px;
+}
+
+.header {
+    padding: 36px 0;
+    border-bottom: 1px solid #E5E5E5;
+    background-color: #fff;
+}
+
+.header-link {
+    font-weight: 600; /* начертание шрифта */
+    color: #1c1c1c; /* цвет шрифта */
+    font-size: 15px; /* размер шрифта */
+}
+
+.header-container {
+    align-items: center;
+}
+
+.header-logo {
+    margin-right: auto;
+    /* распределяет по горизонтали, прижав меню навигации вправо */
+}
+
+.header-nav {
+    margin-right: 52px;
+    /* расстояние между меню навигацией и кнопкой */
+}
+
+.header-list-item:not(:last-child) {
+    margin-right: 52px;
+}
+
+.header-list-item:hover a {
+    color: #3172B9;
+}
+
+.header-list-item:focus {
+    border: 1px solid #3172B9;
+}
+
+.header-list-item:active a {
+    text-decoration: underline;
+    color: #0E3B6C;
+}
+
+
+/* самостоятельное */
+
+.header-btn:hover {
+    background-color: #71a7e2;
+}
+
+.header-btn:focus {
+    border: 1px solid #3172B9;
+}
+
+.header-btn:active {
+    background-color: #0e3b6c;
+}
+
+
+.hero-btn:hover {
+    background-color: #71a7e2;
+}
+
+.hero-btn:focus {
+    border: 1px solid #3172B9;
+}
+
+.hero-btn:active {
+    background-color: #0e3b6c;
+}
+
+
+
+
+.btn {
+    font-weight: 600; /* начертание текста */
+    font-size: 15px; /* размер текста */
+    text-transform: uppercase; /* заглавные буквы */
+    padding: 15px 35px;
+    background-color: #3172B9; /* фон кнопки */
+    color: #fff; /* цвет текста */
+    border-radius: 3px; /* скругление углов кнопки */
+}
+
+
+/* HERO */
+.hero {
+    padding: 100px 0;
+    padding-top: 100px;
+    padding-bottom: 150px;
+    background-image: url(../img/first-bg.jpg);
+    background-size: cover; /* масштабирует картинку с сохранением пропорций */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 50%;
+    flex-direction: column;
+    /* изменим вертикальную ось на горизонтальную*/
+    align-items: flex-start;
+}
+
+/* заголовок */
+.hero-title {
+    margin: 0;
+    margin-bottom: 25px;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 130%;
+    color: #1c1c1c;
+}
+
+/* параграф-абзац */
+.hero-descr {
+    margin: 0;
+    margin-bottom: 34px;
+    font-size: 16px;
+    line-height: 155%;
+    color: #787878;
+}
+
+.hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-btn { /* кнопка */
+    margin-bottom: 14px;
+    min-width: 250px;
+    padding-top: 20px;
+    padding-bottom: 20px; /* округляем (в макете 19, у нас 20) */
+    margin-bottom: 14px; /* расстояние между кнопкой и подписью */
+}
+
+.hero-secure {
+    font-size: 11px;
+    line-height: 155%; /* межстрочный интервал */
+    color: #787878;
+    text-transform: uppercase;
+    background-image: url(../img/secure.svg);
+    background-position: left-center;
+    background-size: 14px 17px; /* размеры иконки */
+    background-repeat: no-repeat;
+    padding-left: 30px; /* сдвинем изображение левее от подписки */
+}
+
+
+/* кнопка */
+.hero-btn {
+    margin-bottom: 14px;
+}
+
+
+
+/* SERVICES */
+
+.services {
+    border-bottom: 1px solid #dadada;
+}
+
+.services-title {
+    text-align: center;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 130%;
+    color: #1c1c1c;
+}
+/* заголовок - НЕ РАБОТАЕт*/
+
+
+/* параграф-абзац */
+.services-descr {
+    text-align: center;
+}
+
+.services-item {
+    flex-direction: column; /* меняем главную ось */
+    align-items: center; /* отцентрируем */
+    padding: 60px 30px;
+    width: 270px;
+    border: 1px solid #E4e4e4;
+    border-radius: 5px;
+    /* outline: 1px solid; визуальные границы */
+}
+
+
+/* отступы между карточкам ив services, учитывая, что карточек может стать больше. Задаем справа отступ 30, но у каждой четвертой будем обнулять */
+
+.services-item:not(:nth-child(4n)) {
+    margin-right: 30px;
+}
+
+.services-item-icon { /* отступ снизу иконки */
+    margin-bottom: 25px;
+}
+
+.services-item-title {
+    margin: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 130%;
+    color: #1c1c1c;
+}
+
+.services-item-descr {
+    margin: 0;
+    text-align: center; /* центрирую текст */
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 150%;
+    color: #787878;
+}
+
+
+/* ARTICLES */
+
+.articles {
+    border-bottom: 1px solid #dadada;
+}
+
+.articles-list {
+    flex-wrap: wrap;
+}
+
+.articles-item {
+    width: 570px;
+    margin-bottom: 30px;  /* отступы по вертикали между статьями */
+    /* outline: 1px solid coral; */
+}
+
+.articles-item:not(:nth-child(2n)) { /* отступ между, исключая каждую вторую статью */
+    margin-right: 30px;
+}
+
+.blog-preview {
+    overflow: hidden; /* уберём всё лишнее */
+    border: 1px solid #E4e4e4;
+    border-radius: 5px;
+}
+
+.blog preview-image {
+    object-fit: cover; /* чтобы картинка занимала всё отведенное для неё место, даже при неправильных пропорциях */
+}
+
+.blog-preview-text {
+    padding: 30px;
+}
+
+.blog-preview-time {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 150%;
+    color: #787878;
+}
+
+.blog-preview-title {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 20px;
+    line-height: 130%;
+    color: #1c1c1c;
+}
+
+.blog-preview-descr {
+    margin: 0;
+    font-size: 14px;
+    line-height: 150%;
+    color: #787878;
+    max-width: 210px; /* ограничение ширины обзаца, чтобы текст не выходил за рамки */
+}
+
+
+/* CLIENTS */
+
+.clients {
+    border-bottom: 1px solid #dadada;
+}
+
+.clients-item {
+    flex-direction: column;
+    width: 370px;
+    padding: 50px 36px;
+    padding-bottom: 30px;
+    border: 1p solid #E4e4e4;
+    border-radius: 5px;
+    /* outline: 1px solid coral; */
+}
+
+.clients-item:not(:nth-child(3n)) {
+    margin-right: 30px;
+}
+
+.clients-item-descr {
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 180%;
+    color: #787878;
+}
+
+.clients-item {
+    border: 1px solid #E4e4e4;
+}
+
+.clients-user {
+    margin-top: auto; /* прижимаем к нижнему краю */
+    align-items: center;
+    border-top: 1px solid #dadada; /* добавляется линия */
+    width: 100%; /* растягиваем на всю ширину */
+    padding-top: 28px; /* отступ от линии до аватарки */
+}
+
+.clients-avatar {
+    flex-shrink: 0; /* чтобы аватар не ужимался в размере */
+    width: 67px;
+    margin-right: 17px;
+}
+
+.clients-avatar img {
+    width: 100%; /* чтобы изображение занимало всё предоставленное ему пространство */
+    height: 100%;
+    border: 2px solid #3172B9;
+    border-radius: 100%;
+}
+
+.clients-name {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 180%;
+    color: #1c1c1c;
+}
+
+.clients-post {
+    font-size: 14px;
+    line-height: 180%;
+    color: #787878;
+}
+
+
+/* CONTACTS */
+
+.contacts {
+    border: 1px solid #dadada;
+}
+
+.contacts-address {
+    font-style: normal; /* убирает КУРСИВ */
+}
+
+.contacts-item {
+    flex-direction: column;
+    width: 370px;
+    background-position: left top; /* исконки распологаются слева сверху */
+    background-repeat: no-repeat; /* отменяет повторение изображения */
+    background-size: 29px 29px; /* размеры нашего изображения иконок */
+    padding-top: 49px;
+    /* outline: 1px solid coral; */
+}
+
+.contacts-item-address {
+    background-image: url(../img/location_on.svg)
+}
+
+.contacts-item-call {
+    background-image: url(../img/phone.svg);
+}
+
+.contacts-item-mail {
+    background-image: url(../img/mail.svg);
+}
+
+.contacts-item:not(:nth-child(3n)) {
+    margin-right: 30px;
+}
+
+.contacts-item-caption {
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 180%;
+    color: #1c1c1c;
+}
+
+.contacts-item-text {
+    margin: 0;
+    max-width: 215px;
+    font-size: 14px;
+    line-height: 180%;
+    color: #787878;
+}
+
+.contacts-item-link {
+    font-size: 14px;
+    line-height: 180%; /* отступ между строк */
+    color: #787878;
+}
+
+.contacts-item-link:hover {
+    color: #3172B9;
+}
+
+.contacts-item-link:focus {
+    border: 1px solid #3172B9;
+}
+
+.contacts-item-link:active {
+    color: #0E3B6C;
+}
+
+/* .contacts-item-link:not(:last-childs) { /* отступы между ссылками для кликабельности. (но чтобы отступа не было на последней ссылке
+    margin-bottom: 5px;
+} */
+
+
+/* FOOTER */
+.footer {
+    padding: 42px 0;
+}
+
+.footer-copy {
+    font-size: 12px;
+    line-height: 16px;
+    color: #787878;
+}
+
+.footer-link {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #787878;
+}
+
+.footer-container {
+    align-items: center;
+    justify-content: space-between; /* для распределение слева и спрва нужных элементов */
+}
+
+.footer-left,
+.footer-right {
+    align-items: center;
+}
+
+.footer-logo {
+    margin-right: 25px;
+}
+
+.footer-item:not(:last-child) {
+    margin-right: 28px;
+}
+
+.social-link {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* масштабирование изображения, с сохранением пропорций. + чтобы картинка целиком поместилась внутрь блока */
+}
+
+.social-link-tg {
+    background-image: url(../img/telegram.svg);
+}
+
+.social-link-vk {
+    background-image: url(../img/vk.svg);
+}
+
+.social-link-mail {
+    background-image: url(../img/footer-mail.svg);
+}
+
+.social-item:not(:last-child) {
+    margin-right: 32px;
+}
+
+.footer-nav {
+    margin-right: 56px;
+}
+
+
+/* JOIN US */
+
+.join-us {
+    border-bottom: 1px solid #dadada;
+}
+
+.join-us-title {
+    text-align: center;
+    color: #1c1c1c;
+}
+
+.join-us-descr {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-input {
+    border: 1px solid #dadada;
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 16px 28px;
+    width: 251px;
+    height: 60px;
+}
+
+
+.form-input:hover {
+    outline: none;
+    border: 1px solid #71a7e2;
+}
+
+.form-input:focus {
+    outline: none;
+    background-color: #e6f2ff;
+    border: 1px solid #71a7e2;
+}
+
+.form-input:active {
+    outline: none;
+    background-color: white;
+    border: 1px solid #0E3B6C;
+    color: white
+}
+
+.form-select:hover {
+    border: 1px solid #71a7e2;
+}
+
+.form-select:focus {
+    outline: none;
+    background-color: #e6f2ff;
+    border: 1px solid #71a7e2;
+}
+
+.form-select:active {
+    outline: none;
+    border: 1px solid #0E3B6C;
+    background-color: white;
+}
+
+
+.form-select {
+    /* border: 1px solid #0E3B6C; */
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    border-radius: 50px;
+    padding: 16px 28px;
+    width: 251px;
+    height: 60px;
+    color: #787878;
+}
+
+.form-textarea {
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    border-radius: 20px;
+    resize: none; /* чтобы не изменялась ширина */
+    padding: 16px 28px;
+    width: 100%;
+    height: 100%;
+}
+
+.form-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 19px;
+}
+
+.form-right,
+.form-left {
+    width: 49%;
+}
+
+.form {
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.form-left {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-bottom {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* .form-btn {
+    min-width: 230px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 50px;
+    margin-bottom: 9px;
+} */
+
+.form-btn {
+    margin-bottom: 9px;
+    border-radius: 50px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    min-width: 230px;
+}
+
+.form-check {
+    color: #787878;
+    font-size: 12px;
+}
+
+.form-check input {
+    margin-right: 8px;
+}
+
+.form-check a {
+    color: #317289;
+    border-bottom: 1px solid #317289;
+}
+
+.form-input:not(:nth-child(2n)) {
+    margin-bottom: 15px;
+}
+
+
+/* бургерное МЕНЮ */
+
+
+@media (max-width: 360px) {
+
+}
